@@ -1,0 +1,56 @@
+<html>
+  {% extends "base.html" %}
+  {% block base %}
+
+		<center>
+		    <h1>Welcome!</h1>
+		    <p>CUNY Course Search: Alpha</p>
+		</center>
+
+          <hr>
+          {% if dictionary %}
+	      <center>
+		      <div style="width:300px;">
+		      <br>
+		      	<form class="form-horizontal">   	
+			    <select id = "institutions" class="form-control" data-placeholder="Choose an Institution">
+			        <option></option>
+				    {% for value in sortedlist %}
+				     	 <option class = "{{ dictionary[value] }}">{{ value }}</option>
+				    {% endfor %}			      
+			    </select>  
+			    </form>
+
+			    <form class="form-horizontal">
+			    <select id = "terms" class="form-control" data-placeholder="Choose a Term">
+			        <option></option>
+			    </select>
+			    </form>
+
+			    <form class="form-horizontal">
+				    <select id = "departments" class="form-control" data-placeholder="Choose a Department">
+				        <option></option>
+				    </select>
+				</form>
+
+				<div class="checkbox checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox" value="yes">
+                        <label for="inlineCheckbox">Include Closed Classes</label>
+                </div>
+
+			    <br>
+			    <br>
+
+			    <button id="submit" name="submit">
+				Submit Query
+				</button>
+				</div>
+
+			    <div id = "puttable">
+			    </div>
+
+			    </div>
+		  </center>
+	      {% endif %}
+  {% endblock %}
+</html>
